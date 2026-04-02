@@ -1,23 +1,356 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
+
+   <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "렉서스 ES300h 장기렌트 서비스",
+      "description": "2026년형 렉서스 ES300h 하이브리드 모델의 장기렌트 견적 비교 및 전문 컨설팅 서비스입니다. 월별 예상 비용, 보증금 조건, 계약 기간별 장단점 분석을 통해 고객 맞춤형 솔루션을 제공합니다.",
+      "serviceType": "Car Rental Service",
+      "provider": {
+        "@type": "Organization",
+        "name": "Premium Auto Lease & Rental Solutions",
+        "url": "https://example.com"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "대한민국 전역"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "렉서스 ES300h 장기렌트 상품",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "렉서스 ES300h 럭셔리 트림 장기렌트",
+              "description": "기본형 럭셔리 트림의 장기렌트 상품. 48개월 기준 견적 제공.",
+              "brand": "Lexus",
+              "model": "ES300h",
+              "productID": "LEXUS-ES300H-LUXURY-RENTAL"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "렉서스 ES300h 이그제큐티브 트림 장기렌트",
+              "description": "최상위 트림 이그제큐티브 모델 장기렌트. 추가 옵션 포함 견적 제공.",
+              "brand": "Lexus",
+              "model": "ES300h",
+              "productID": "LEXUS-ES300H-EXECUTIVE-RENTAL"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <style>
+        /* CSS Reset and Global Styles */
+        body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 0; line-height: 1.8; color: #333; background-color: #f8f9fa; }
+        h1, h2, h3, h4 { font-weight: 700; color: #1a1a1a; margin-top: 0; margin-bottom: 15px; }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; border-bottom: 3px solid #00508c; padding-bottom: 10px; margin-bottom: 20px; }
+        h3 { font-size: 1.5rem; color: #0077c2; margin-top: 30px; }
+        p { margin-bottom: 1rem; }
+        ul { list-style-type: disc; margin-left: 20px; margin-bottom: 1rem; }
+        li { margin-bottom: 8px; }
+        a { color: #00508c; text-decoration: none; transition: color 0.3s; }
+        a:hover { color: #0077c2; text-decoration: underline; }
+
+        /* Layout and Component Styling */
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .hero { background: linear-gradient(135deg, #00508c, #0077c2); color: #fff; text-align: center; padding: 60px 20px; border-radius: 10px; margin-bottom: 30px; }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 10px; color: #fff; }
+        .hero p { font-size: 1.2rem; margin-bottom: 20px; opacity: 0.9; }
+        .cta-btn { background: #ffba08; color: #1a1a1a; padding: 15px 30px; font-weight: bold; border-radius: 8px; text-decoration: none; display: inline-block; font-size: 1.1rem; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .cta-btn:hover { background: #fcc02f; }
+        .section-content { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); margin-bottom: 30px; }
+        .image-container { margin: 20px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+        .image-container img { width: 100%; height: auto; display: block; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; background-color: #fcfcfc; border-radius: 8px; overflow: hidden; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; font-size: 0.95rem; }
+        th { background-color: #eef4f7; font-weight: bold; color: #1a1a1a; }
+        td { color: #444; }
+        .highlight { background-color: #e6f7ff; padding: 15px; border-left: 5px solid #0077c2; margin-bottom: 20px; border-radius: 5px; }
+
+        /* Form Styling */
+        form { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 1rem; color: #444; }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 1rem; background-color: #f9f9f9; }
+        button[type="submit"] { background: #0077c2; color: #fff; padding: 15px 30px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 1.1rem; transition: background 0.3s; width: 100%; }
+        button[type="submit"]:hover { background: #00508c; }
+
+        /* Navigation Menu */
+        nav { background: #ffffff; padding: 10px 0; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); }
+        nav .container { display: flex; justify-content: space-around; flex-wrap: wrap; }
+        nav a { margin: 5px 15px; color: #00508c; text-decoration: none; font-weight: 600; font-size: 0.9rem; padding: 5px 10px; border-radius: 5px; transition: background 0.3s; }
+        nav a:hover { background: #f0f0f0; }
+
+        /* Footer Styling */
+        footer { background: #333; color: #ccc; text-align: center; padding: 40px 20px; font-size: 0.9rem; margin-top: 30px; }
+        footer a { color: #fff; margin: 0 10px; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.8rem; }
+            .hero { padding: 40px 15px; }
+            .cta-btn { font-size: 1rem; padding: 12px 25px; }
+            nav .container { justify-content: center; }
+            nav a { margin: 5px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>렉서스 ES300h 장기렌트 가격 비용 비교 견적 전문</h1>
+            <p>2026년형 렉서스 ES300h 하이브리드 모델 완벽 분석: 월 예상 비용, 장점, 단점, 후기까지</p>
+            <a href="#quote-form" class="cta-btn">실시간 무료 견적 요청하기</a>
+        </div>
+    </header>
+
     <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+        <div class="container">
+            <a href="#overview">모델 개요</a>
+            <a href="#price-analysis">가격 비교</a>
+            <a href="#advantages">장점 분석</a>
+            <a href="#process">계약 절차</a>
+            <a href="#keywords">연관 키워드</a>
+            <a href="#quote-form">견적 문의</a>
+        </div>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+    <div class="container">
+
+        <!-- Section 1: Introduction and Model Overview -->
+        <section id="overview" class="section-content">
+            <h2>렉서스 ES300h 장기렌트, 왜 지금 선택해야 하는가?</h2>
+            <p><strong>렉서스 ES300h</strong>는 국내 하이브리드 세단 시장에서 독보적인 위치를 차지하고 있는 모델입니다. 특히 고급스러운 승차감과 압도적인 연비 효율성, 그리고 렉서스 특유의 정숙성은 비즈니스용 세단이나 패밀리카로 손색이 없습니다. 2026년형 모델은 이전 세대보다 더욱 정교해진 하이브리드 시스템과 첨단 안전사양을 탑재하여 상품성이 강화되었습니다.</p>
+            <p>최근에는 차량을 구매하는 방식 대신 <strong>장기렌트</strong>를 통해 렉서스 ES300h를 이용하려는 소비자들이 급증하고 있습니다. 장기렌트는 초기 비용 부담이 적고, 월 납입금에 보험료, 세금, 유지보수 비용까지 모두 포함되어 있어 경제적 관리가 용이하다는 장점이 있습니다. 특히 개인사업자나 법인사업자의 경우 월 렌탈료 전액을 손비 처리할 수 있어 절세 효과도 뛰어납니다.</p>
+
+            <h3>2026년형 렉서스 ES300h 모델 상세 스펙 (예상 정보)</h3>
+            <div class="image-container">
+                <!-- Image source: pexels.com. Search for "Lexus ES300h" or "luxury hybrid car" -->
+                <img src="https://images.pexels.com/photos/1570189/pexels-photo-1570189.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="렉서스 ES300h 장기렌트">
+            </div>
+            <p>2026년형 렉서스 ES300h는 2.5L 4기통 가솔린 엔진과 하이브리드 시스템이 결합된 모델입니다. 렉서스의 첨단 하이브리드 기술(Lexus Hybrid Drive)이 적용되어 정숙하면서도 강력한 주행 성능을 제공하며, 복합 연비는 17km/L 이상을 기록할 것으로 예상됩니다. 주요 트림은 럭셔리, 이그제큐티브, F SPORT 등으로 구성되며, 각각의 트림별로 디자인 요소와 편의 사양에 차이가 있습니다.</p>
+            <ul>
+                <li><strong>파워트레인:</strong> 2.5L 직렬 4기통 가솔린 엔진 + 하이브리드 모터</li>
+                <li><strong>최고출력/토크:</strong> 합산 218마력 (예상)</li>
+                <li><strong>복합연비:</strong> 17.2 km/L (예상, 등급별 차이 있음)</li>
+                <li><strong>주요 트림:</strong> 럭셔리(Luxury), 이그제큐티브(Executive), F SPORT</li>
+                <li><strong>특징:</strong> 렉서스 세이프티 시스템 플러스(LSS+), 프리미엄 인테리어</li>
+            </ul>
+
+            <h3 id="keywords">렉서스 ES300h 장기렌트 관련 연관 키워드 분석</h3>
+            <p>네이버, 구글 검색 엔진에서 사용자들이 렉서스 ES300h 장기렌트를 검색할 때 함께 사용하는 키워드는 다음과 같습니다. 이러한 키워드를 통해 고객이 어떤 정보를 필요로 하는지 예측하고, 견적 상담 시 맞춤형 정보를 제공합니다.</p>
+            <div class="highlight">
+                <p><strong>주요 연관 검색어:</strong> 렉서스 ES300h 장기렌트 가격, 렉서스 ES300h 월 납입금, 렉서스 ES300h 신형 견적, 렉서스 ES300h 리스 장단점, 렉서스 ES300h 내돈내산 후기, 렉서스 ES300h 저렴한곳, 렉서스 ES300h 프로모션, 렉서스 ES300h 비교견적 사이트, 렉서스 ES300h 장기렌트 업체 순위, 렉서스 ES300h 신차 출고기간, 렉서스 ES300h 법인 렌트, 렉서스 ES300h 개인사업자 절세, 렉서스 ES300h 신규가입 혜택, 렉서스 ES300h 사은품, 렉서스 ES300h 현금지원.</p>
+                <p><strong>경쟁 모델 비교 키워드:</strong> 렉서스 ES300h vs E클래스 하이브리드, 렉서스 ES300h vs BMW 530e, 렉서스 ES300h vs K8 하이브리드.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Price and Cost Comparison -->
+        <section id="price-analysis" class="section-content">
+            <h2>렉서스 ES300h 장기렌트 가격 분석: 평균 비용과 견적 예상</h2>
+            <p>렉서스 ES300h 장기렌트의 <strong>월 예상 비용(월 납입금)</strong>은 차량의 트림, 계약 기간(36개월, 48개월, 60개월), 보증금/선납금 여부, 연간 주행거리 등에 따라 크게 달라집니다. 특히 렌트 업체마다 책정하는 잔존가치와 프로모션 조건이 다르기 때문에 여러 업체의 견적을 <strong>비교</strong>하는 것이 중요합니다.</p>
+
+            <h3>2026년형 렉서스 ES300h 장기렌트 예상 견적 비교 (48개월 기준)</h3>
+            <p>아래 표는 2026년형 렉서스 ES300h 럭셔리 트림(예상 차량가 6,500만원 기준)의 장기렌트와 차량 구매 시 비용을 비교한 표입니다. 이는 예상치이며 실제 견적은 다를 수 있습니다.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>장기렌트 (보증금 0%)</th>
+                        <th>장기렌트 (보증금 30%)</th>
+                        <th>현금/할부 구매 (선수금 30%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>월 납입금 (예상)</strong></td>
+                        <td>95만원 ~ 105만원</td>
+                        <td>80만원 ~ 90만원</td>
+                        <td>90만원 ~ 110만원 (할부 이자 포함)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>초기 비용</strong></td>
+                        <td>0원 (혹은 심사 보증보험)</td>
+                        <td>약 1,950만원 (차량가 30%)</td>
+                        <td>약 1,950만원 (취득세, 등록세 별도)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>총 비용 (48개월)</strong></td>
+                        <td>약 4,800만원</td>
+                        <td>약 3,840만원 + 보증금 반환</td>
+                        <td>약 5,000만원 + 이자 (차량가 6,500만원 기준)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>보험/세금/정비</strong></td>
+                        <td>월 납입금 포함</td>
+                        <td>월 납입금 포함</td>
+                        <td>개인 부담</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="highlight"><strong>Tip:</strong> 보증금을 납입하면 월 렌탈료가 낮아져 총 이자 비용을 줄일 수 있습니다. 렌트 기간이 길수록(60개월) 월 납입금은 낮아지지만 총 비용은 늘어날 수 있으므로 계약 기간을 신중하게 선택해야 합니다. <strong>가장 저렴한곳</strong>을 찾으려면 여러 렌탈 업체의 견적을 동시에 받아보는 것이 핵심입니다.</p>
+
+            <h3>장기렌트와 할부 구매의 장단점 차이점 분석</h3>
+            <p>렉서스 ES300h를 소유하는 방법은 장기렌트 외에도 할부 구매가 있습니다. 두 가지 방법의 <strong>장단점 차이점</strong>을 정확히 이해하고 본인의 상황에 맞는 최적의 방법을 선택해야 합니다.</p>
+            <ul>
+                <li><strong>장기렌트 장점:</strong>
+                    <ul>
+                        <li>초기 비용 최소화: 보증금 없이도 신차 이용이 가능합니다.</li>
+                        <li>세금 및 보험료 절감: 취득세, 등록세, 자동차세, 보험료가 월 렌탈료에 포함됩니다.</li>
+                        <li>관리 편의성: 렌터카 회사에서 차량 관리(정비, 사고 처리)를 대행해줍니다.</li>
+                        <li>세금 절세 효과: 사업자는 월 렌탈료 전액을 비용으로 처리하여 세금 부담을 줄일 수 있습니다.</li>
+                    </ul>
+                </li>
+                <li><strong>장기렌트 단점:</strong>
+                    <ul>
+                        <li>차량 소유권 부재: 번호판이 '하, 허, 호'로 시작하며, 계약 종료 시 차량을 반납해야 합니다.</li>
+                        <li>주행거리 제한: 연간 주행거리 약정(1만~3만km)을 초과하면 추가 비용이 발생합니다.</li>
+                        <li>보험 경력 단절: 보험료가 렌탈사에 귀속되므로 개인 보험 경력이 단절될 수 있습니다.</li>
+                    </ul>
+                </li>
+                <li><strong>할부 구매 장점:</strong>
+                    <ul>
+                        <li>차량 소유권 확보: 계약과 동시에 내 명의로 차량을 등록합니다.</li>
+                        <li>자유로운 주행거리: 주행거리 제한 없이 자유롭게 운행할 수 있습니다.</li>
+                        <li>차량 튜닝 가능: 원하는 대로 차량 튜닝이 가능합니다.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section 3: Advantages and User Reviews -->
+        <section id="advantages" class="section-content">
+            <h2>렉서스 ES300h 장기렌트의 핵심 장점: 내돈내산 후기 기반 분석</h2>
+            <p>렉서스 ES300h 장기렌트를 이용하는 고객들이 꼽는 가장 큰 <strong>장점</strong>은 바로 '편의성'과 '경제성'의 결합입니다. 특히 하이브리드 차량은 일반 가솔린 차량보다 유지보수 비용이 높다고 생각할 수 있지만, 장기렌트의 경우 이러한 유지보수 비용까지 모두 포함되므로 예산 관리가 매우 수월합니다.</p>
+
+            <h3>1. 압도적인 연비 효율과 정숙성</h3>
+            <p>렉서스 ES300h는 훌륭한 연비 효율을 자랑합니다. 2026년형 모델도 고유가 시대에 빛을 발하며, 장거리 운행이 잦은 비즈니스맨들에게 큰 이점을 제공합니다. 조용한 실내는 장거리 운전의 피로도를 줄여주며, 프리미엄 오디오 시스템과 결합하여 운전의 만족도를 높입니다.</p>
+
+            <h3>2. 사업자 절세 효과: 월 렌탈료 100% 비용 처리</h3>
+            <p>개인사업자 및 법인사업자의 경우 렉서스 ES300h를 장기렌트로 이용하면 월 납입금 전액을 비용으로 처리할 수 있습니다. 이는 연말정산 시 큰 절세 효과로 이어집니다. 특히 고가 차량의 경우 일반 구매 시 감가상각비 인정 한도가 있지만, 렌터카는 이러한 제한이 없어 세무 관리가 간편합니다.</p>
+
+            <h3>3. 초기 비용 0원, 보험 및 사고처리 걱정 해소</h3>
+            <p>장기렌트는 초기 비용이 0원부터 시작할 수 있어 목돈 부담이 없습니다. 또한 사고 발생 시 렌터카 회사에서 처리해주므로 보험 할증이나 복잡한 사고 처리 과정에 신경 쓸 필요가 없습니다. 이는 특히 운전 경력이 짧거나 사고 이력이 많은 고객에게 큰 메리트입니다.</p>
+
+            <h3>4. 렉서스 ES300h의 상품성: 경쟁 모델과의 차이점</h3>
+            <p>렉서스 ES300h는 동급 경쟁 모델인 메르세데스-벤츠 E클래스나 BMW 5시리즈 하이브리드 모델과 비교했을 때 훌륭한 가격 대비 가치를 제공합니다. 렉서스의 높은 내구성, 뛰어난 품질 마감, 그리고 정숙성은 타 브랜드 대비 확실한 차이점을 보여줍니다. 특히 잔존가치가 높게 책정되어 렌탈료 산정 시 유리한 측면이 있습니다.</p>
+        </section>
+
+        <!-- Section 4: External Links (E-E-A-T Optimization) -->
+        <section class="section-content">
+            <h2>신뢰성 있는 외부 정보 출처</h2>
+            <p>렉서스 ES300h 장기렌트에 대한 결정을 내리기 전에, 공신력 있는 기관의 정보를 참고하여 차량 정보를 확인하십시오. 아래는 렉서스 차량과 장기렌트 제도에 대한 신뢰성 있는 외부 사이트입니다.</p>
+            <ul>
+                <li><strong>나무위키 - 렉서스 ES:</strong> 렉서스 ES 모델의 역사, 트림별 특징, 기술 정보 등을 상세하게 확인할 수 있습니다. <a href="https://namu.wiki/w/%EB%A0%89%EC%84%9C%EC%8A%A4%20ES" target="_blank" rel="noopener noreferrer">나무위키 렉서스 ES 정보</a></li>
+                <li><strong>국토교통부 자동차관리법:</strong> 장기렌트 차량의 등록 및 관리 규정 등 제도적인 정보를 확인할 수 있습니다. <a href="https://www.law.go.kr/법령/자동차관리법" target="_blank" rel="noopener noreferrer">국가법령정보센터</a></li>
+                <li><strong>렉서스 코리아 공식 홈페이지:</strong> 2026년형 모델의 공식 스펙과 옵션, 신차 정보를 확인합니다. <a href="https://www.lexus.co.kr" target="_blank" rel="noopener noreferrer">렉서스 코리아</a></li>
+                <li><strong>금융감독원 금융소비자정보 포털 파인:</strong> 장기렌트 계약 시 소비자 보호 규정 및 유의사항을 확인합니다. <a href="https://fine.fss.or.kr/" target="_blank" rel="noopener noreferrer">금융감독원 파인</a></li>
+                <li><strong>한국소비자원:</strong> 장기렌트 관련 소비자 분쟁 사례 및 가이드라인을 확인할 수 있습니다. <a href="https://www.kca.go.kr" target="_blank" rel="noopener noreferrer">한국소비자원</a></li>
+            </ul>
+        </section>
+
+        <!-- Section 5: The Process Guide and FAQs -->
+        <section id="process" class="section-content">
+            <h2>렉서스 ES300h 장기렌트 가입 절차와 유의사항</h2>
+            <p>렉서스 ES300h 장기렌트 가입은 복잡하지 않습니다. 전문 컨설턴트와의 상담을 통해 견적을 받고, 계약을 진행하며, 차량을 인도받는 단계로 이루어집니다. <strong>신규 가입 혜택</strong>이나 프로모션 기간을 활용하면 더욱 <strong>저렴한곳</strong>에서 계약할 수 있습니다.</p>
+
+            <h3>1. 견적 신청 및 맞춤 상담</h3>
+            <p>고객의 운전 조건(연간 주행거리, 보증금/선납금 여부)에 따라 <strong>맞춤형 견적</strong>이 필요합니다. 견적을 요청하실 때 렉서스 ES300h의 트림(럭셔리, 이그제큐티브 등)과 계약 기간을 정확히 지정해주시면 더욱 신속한 상담이 가능합니다. 전문 컨설턴트가 고객님의 신용 등급에 따른 <strong>가입 심사</strong> 기준과 <strong>금액</strong>을 안내해 드립니다.</p>
+
+            <h3>2. 심사 및 계약 진행</h3>
+            <p>장기렌트는 신차 할부와 달리 고객의 신용 등급이 중요합니다. 신용 등급이 낮을 경우 <strong>보증금</strong>을 납입하거나 보증보험에 가입하는 방식으로 심사를 통과할 수 있습니다. 렌터카 업체별로 심사 기준이 다르므로 신용이 낮더라도 전문 업체와의 상담을 통해 가능 여부를 확인해야 합니다.</p>
+
+            <h3>3. 출고 및 차량 관리</h3>
+            <p>계약이 완료되면 렉서스 ES300h 출고 대기 기간을 안내해 드립니다. 2026년형 모델의 출고 대기 기간은 반도체 수급 상황에 따라 달라질 수 있습니다. 출고 후에는 정기적인 차량 정비 서비스(상품에 따라 유료/무료)를 받으며 편리하게 운행할 수 있습니다.</p>
+
+            <h3>함께 많이 찾는 질문 (FAQ)</h3>
+            <ul>
+                <li><strong>Q: 렉서스 ES300h 장기렌트는 신규 가입 혜택이나 현금 지원이 있나요?</strong>
+                    <p>A: 렌탈 업체에 따라 <strong>신규 가입 혜택</strong>이나 <strong>현금지원</strong>, <strong>사은품</strong> 등의 프로모션이 다릅니다. 이는 불법적인 현금 지원금과는 다르게 정식 계약에 포함된 혜택이므로 전문 업체에 문의하여 확인하는 것이 좋습니다.</p>
+                </li>
+                <li><strong>Q: 렉서스 ES300h 리스와 장기렌트의 차이점은 무엇인가요?</strong>
+                    <p>A: <strong>리스</strong>는 '금융 상품'으로 분류되어 부채로 잡히며, 차량 번호판이 일반 번호판입니다. <strong>장기렌트</strong>는 '대여 상품'으로 분류되며, 부채로 잡히지 않아 신용 등급에 미치는 영향이 적고, 월 납입금에 보험료와 세금이 포함됩니다.</p>
+                </li>
+                <li><strong>Q: 만기 시 차량 인수(구매)가 가능한가요?</strong>
+                    <p>A: 네, 계약 만료 시점에 <strong>인수</strong> 또는 <strong>반납</strong>을 선택할 수 있습니다. 렉서스 ES300h는 잔존가치가 높으므로 인수를 고려하는 고객도 많습니다. 인수를 원할 경우 렌탈 계약 시 정해진 잔존가치 금액을 지불하면 됩니다.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section 6: Quote Form (UX optimization for dwell time) -->
+        <section id="quote-form" class="section-content">
+            <h2>프리미엄 렉서스 ES300h 맞춤 견적 신청</h2>
+            <p>지금 바로 견적을 신청하시고, 렉서스 ES300h 장기렌트의 최저가 견적을 비교해보세요. 2026년형 모델에 대한 상세한 정보와 특별 프로모션 혜택을 전문가가 직접 안내해드립니다.</p>
+            <form action="/submit-quote" method="post">
+                <div class="form-group">
+                    <label for="name">이름:</label>
+                    <input type="text" id="name" name="name" placeholder="고객님의 성함을 입력해주세요." required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">연락처:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="휴대폰 번호 (예: 010-1234-5678)" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">이메일:</label>
+                    <input type="email" id="email" name="email" placeholder="견적서 수신 이메일 주소" required>
+                </div>
+                <div class="form-group">
+                    <label for="model-trim">희망 모델 트림:</label>
+                    <select id="model-trim" name="model-trim" required>
+                        <option value="">-- 트림 선택 --</option>
+                        <option value="luxury">렉서스 ES300h 럭셔리</option>
+                        <option value="executive">렉서스 ES300h 이그제큐티브</option>
+                        <option value="fsport">렉서스 ES300h F SPORT</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="duration">희망 계약 기간:</label>
+                    <select id="duration" name="duration" required>
+                        <option value="">-- 기간 선택 --</option>
+                        <option value="36">36개월</option>
+                        <option value="48">48개월</option>
+                        <option value="60">60개월</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mileage">연간 주행거리 약정:</label>
+                    <select id="mileage" name="mileage" required>
+                        <option value="">-- 주행거리 선택 --</option>
+                        <option value="10000">1만 km</option>
+                        <option value="15000">1만 5천 km</option>
+                        <option value="20000">2만 km</option>
+                        <option value="30000">3만 km 이상</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="downpayment">보증금/선납금 여부:</label>
+                    <select id="downpayment" name="downpayment" required>
+                        <option value="none">보증금 없음 (0%)</option>
+                        <option value="10%">보증금 10%</option>
+                        <option value="20%">보증금 20%</option>
+                        <option value="30%">보증금 30%</option>
+                        <option value="prepayment">선납금 (별도 문의)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="memo">문의 내용 (추가 요청 사항):</label>
+                    <textarea id="memo" name="memo" rows="4" placeholder="궁금한 점이나 특별히 원하는 옵션을 작성해주세요. (예: 즉시 출고 가능 여부, 신용 등급 관련 문의 등)"></textarea>
+                </div>
+                <button type="submit">맞춤 견적 요청하기</button>
+            </form>
+        </section>
+
+    </div>
+
+ 
+  
